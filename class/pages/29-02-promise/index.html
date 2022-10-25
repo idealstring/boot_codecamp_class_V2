@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>promise 실행하기</title>
+    <script>
+      const onClickThen = () => {
+        new Promise((resolve, reject) => {
+          // 시간이 걸리는 작업
+          //
+          //
+          //
+          setTimeout(() => {
+            try {
+              const res = "철수"; // 2초가 걸려 백엔드에서 받아왔다고 치자.
+              resolve(res); // 성공 시
+            } catch (error) {
+              reject(error); // 실패 시
+            }
+          }, 2000);
+        }).then((res) => {
+          console.log(res); // //////////////// 최종결과 : 철수 ///////////////////
+        });
+      };
+      const onClickAwait = async () => {
+        const result = await new Promise((resolve, reject) => {
+          // 시간이 걸리는 작업
+          //
+          //
+          //
+          setTimeout(() => {
+            try {
+              const res = "철수"; // 2초가 걸려 백엔드에서 받아왔다고 치자.
+              resolve(res); // 성공 시
+            } catch (error) {
+              reject(error); // 실패 시
+            }
+          }, 2000);
+        });
+        console.log(result); // //////////////// 최종결과 : 철수 ///////////////////
+      };
+      // 결론, resolve에 담긴 게 최종이다.
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickThen()">promise 실행하기(.then)</button>
+    <button onclick="onClickAwait()">promise 실행하기(await)</button>
+  </body>
+</html>

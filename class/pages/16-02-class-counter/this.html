@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>what is 'this'</title>
+    <script>
+      class Counter {
+        count = 10;
+        onClickButton() {
+          console.log("현재카운트 : ", this.count);
+        }
+        // onClickButton = () => { // 이거로 하면 this안해도됨
+        //   console.log("현재카운트 : ", this.count);
+        // };
+
+        render() {
+          const button = document.createElement("button");
+          button.count = 100;
+          button.innerText = "클릭하세요";
+          button.addEventListener("click", this.onClickButton.bind(this));
+          //   button.addEventListener("click", this.onClickButton); // 화살표 함수 시
+          document.body.appendChild(button);
+        }
+      }
+
+      window.onload = function () {
+        const counter = new Counter();
+        counter.render();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

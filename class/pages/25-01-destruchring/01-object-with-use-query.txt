@@ -1,0 +1,47 @@
+크롬에서 실습했음.
+
+
+function useQuery(aaa){
+    // aaa (ex, FETCH_BOARD)를 통해서 backend에 API 요청
+    return {
+        data: { fetchBoard: { wirter: "철수" } },
+        loading: false,
+        refetch: () => {
+            console.log("리패치 실행!")
+        }
+    }
+}
+undefined
+
+useQuery
+ƒ useQuery(aaa){
+
+
+    // aaa (ex, FETCH_BOARD)를 통해서 backend에 API 요청
+
+    return {
+        data: { fetchBoard: { wirter: "철수" } },
+        loading: false,
+        refetch: () => {
+            console.l…
+
+useQuery()
+{data: {…}, loading: false, refetch: ƒ}data: {fetchBoard: {…}}loading: falserefetch: () => {             console.log("리패치 실행!")         }[[Prototype]]: Object
+
+const {data } =useQuery()
+undefined
+
+data.fetchBoard.wirter
+'철수'
+
+const {data,refetch } =useQuery()
+undefined
+
+refetch
+() => {
+            console.log("리패치 실행!")
+        }
+
+refetch()
+VM958:10 리패치 실행!
+undefined

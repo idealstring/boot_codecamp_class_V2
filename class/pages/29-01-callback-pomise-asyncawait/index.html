@@ -1,0 +1,112 @@
+<!-- `http://numbersapi.com/random?min=1&max=200` -->
+<!-- `https://koreanjson.com/posts/${num}` -->
+<!-- `https://koreanjson.com/posts?userId=${userId}` -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>콜백과 친구들</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            //   function addEventListener(aaa, qqq) {
+            //     if (aaa) {
+            //       const result = "철수";
+            //       qqq(result);
+            //     }
+            //   }
+
+            const myCallback = () => {
+                // async await가 없던 시절에 쓴 친구
+                const aa = new XMLHttpRequest();
+                aa.open("get", `http://numbersapi.com/random?min=1&max=200`);
+                aa.send();
+                aa.addEventListener("load", function (res) {
+                    console.log(res);
+                    num = res.target.response.split(" ")[0]; // 위 주소에서 랜덤한 텍스트가 나오는데 첫번째에는 랜덤으로 나온 게시글의 번호가 있다.
+
+                    const bb = new XMLHttpRequest();
+                    bb.open("get", `https://koreanjson.com/posts/${num}`);
+                    bb.send();
+                    bb.addEventListener("load", (res) => {
+                        console.log(res);
+
+                        const UserId = JSON.parse(res.target.response).UserId;
+
+                        const cc = new XMLHttpRequest();
+                        cc.open(
+                            "get",
+                            `https://koreanjson.com/posts?userId=${UserId}`
+                        );
+                        cc.send();
+                        cc.addEventListener("load", (res) => {
+                            console.log(res);
+                        });
+                    });
+                });
+            };
+
+            // new Promise((resolve, reject) => {
+            //     try {
+            //         // 여기서 API 요청
+            //         // API 요청을 성공하면 resolve, 실패하면 reject 실행
+            //         const result = "철수"; // 철수를 성공한 결과라 치자.
+            //         resolve(result);
+            //     } catch (error) {
+            //         reject("실패했습니다."); // reject("실패했습니다.")
+            //     }
+            // })
+            //     .then((res) => {
+            //         console.log(res); // 철수
+            //     })
+            //     .catch((err) => {
+            //         console.log(err); // 실패했습니다.
+            //     });
+
+            const myPromise = () => {
+                // 순서를 예측하기 어려움. 먼저 promise 객체를 반환하기 때문.
+                // 엑시오스로 활용. 엑시오스는  promise를 사용한 라이브러리임.
+                //     axios
+                //         .get("https://unpkg.com/axios/dist/axios.min.js")
+                //         .then((res) => {
+                //             axios
+                //                 .get(`http://numbersapi.com/random?min=1&max=200`)
+                //                 .then((res) => {
+                //                     const num = res.target.response.split(" ")[0];
+                //                     axios
+                //                         .get(`https://koreanjson.com/posts/${num}`)
+                //                         .then(console.log("완료!!"));
+                //                 });
+                //         });
+                // };
+                axios
+                    .get("https://unpkg.com/axios/dist/axios.min.js")
+                    .then((res) => {
+                        return axios.get(
+                            `http://numbersapi.com/random?min=1&max=200`
+                        );
+                    })
+                    .then(
+                        console.log("리턴한 값의 성공 값이 들어옴"),
+                        console.log(res)
+                    );
+            };
+
+            // axios, fetch 등 => promise(.then 등 포함)를 반환하는 대표 기능
+            // axios, fetch 등을 기다리는 2가지 방법
+            // 1. .then으로 기다리는 방법,
+            // 2. await를 붙임/ => 단, await는 아무데나 붙인다고 다 기다리진 않음.
+
+            const myAsycnAwait = async () => {
+                // 반환 순서를 꼭 지칠 수 있게 바뀐게 async await
+                await axios.get("https://unpkg.com/axios/dist/axios.min.js");
+                await axios.get(`http://numbersapi.com/random?min=1&max=200`);
+                await axios.get(`http://numbersapi.com/random?min=1&max=200`);
+            };
+        </script>
+    </head>
+    <body>
+        <button onclick="myCallback()">Callback 연습하기!</button>
+        <button onclick="myPromise()">Promise 연습하기!</button>
+        <button onclick="myAsycnAwait()">AsycnAwait 연습하기!</button>
+    </body>
+</html>

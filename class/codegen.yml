@@ -1,0 +1,17 @@
+# generates:
+#   types.ts:
+#     plugins:
+#       - typescript
+# yaml=yml 야믈파일로 부른다. 설정파일. 탭이 매우 중요하다. 부모자식요소를 탭으로 판단하기 때문.
+# 백엔드가 있고 인터넷이 되어야 가능.
+# schema 백엔드주소
+# generates 파일 저장주소
+
+# schema: http://example.codebootcamp.co.kr/graphql
+schema: http://backend09.codebootcamp.co.kr/graphql
+generates:
+  ./src/commons/types/generated/types.ts:
+    plugins:
+      - typescript
+    config:
+      typesPrefix: I
