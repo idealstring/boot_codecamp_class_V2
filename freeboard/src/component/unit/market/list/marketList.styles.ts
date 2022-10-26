@@ -28,7 +28,7 @@ export const Wrapper02 = styled.div`
   display: block;
 
   position: absolute;
-  top: 50px;
+  top: -5px;
   right: 0;
 `;
 
@@ -49,7 +49,7 @@ export const SideSticky = styled.div`
   padding: 5px 20px;
 
   position: sticky;
-  top: 10%;
+  top: 20px;
   transition: top 0.1s ease 0s;
 
   display: flex;
