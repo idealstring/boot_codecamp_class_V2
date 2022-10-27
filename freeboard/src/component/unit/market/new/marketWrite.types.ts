@@ -1,5 +1,5 @@
-import { toastui } from "@toast-ui/editor";
-import { MutableRefObject } from "react";
+import { Editor } from "@toast-ui/react-editor";
+import { LegacyRef } from "react";
 import {
   FieldValues,
   FormState,
@@ -42,12 +42,10 @@ export type IMarketPresenterProps = {
   register: UseFormRegister<IValueProps>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   formState: FormState<FieldValues>;
-  // fileUrls: string[];
-  // onChangeFileUrls: (fileUrl: string, index: number) => Promise<void>;
   onChangeContents: (text: any) => void;
   isEdit: boolean;
   existingData?: Pick<IQuery, "fetchUseditem"> | undefined;
-  contentsRef: MutableRefObject<undefined>;
+  contentsRef: LegacyRef<Editor> | undefined;
   previewUrls: string[];
   onChangeUrlsFiles: (url: string, file: File, index: number) => void;
   fetchUrls: string[];

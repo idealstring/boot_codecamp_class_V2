@@ -29,13 +29,12 @@ declare const window: Window &
 export default function MarketContainer(P: IMarketContainerProps) {
   useAuth();
   const { isEdit, existingData, loading } = P;
-  // const [fileUrls, setFileUrls] = useState(["", ""]);
 
   const [previewUrls, setPreviewUrls] = useState<string[]>(["", "", ""]);
-  const [uploadFiles, setUploadFiles] = useState<File[]>(["", "", ""]);
+  const [uploadFiles, setUploadFiles] = useState<File[]>([]);
   const [fetchUrls, setFetchUrls] = useState<string[]>([]);
 
-  const contentsRef = useRef();
+  const contentsRef = useRef<any>();
   const router = useRouter();
   const schema = yup.object({
     name: yup.string().required(),
@@ -55,20 +54,20 @@ export default function MarketContainer(P: IMarketContainerProps) {
     useForm({
       resolver: yupResolver(schema),
       mode: "onChange",
-      defaultValues: {
-        name: "",
-        remarks: "",
-        contents: "",
-        price: 0,
-        tags: "",
-        useditemAddress: {
-          lng: "",
-          lat: "",
-          zipcode: "",
-          address: "",
-          addressDetail: "",
-        },
-      },
+      // defaultValues: {
+      //   name: "",
+      //   remarks: "",
+      //   contents: "",
+      //   price: 0,
+      //   tags: "",
+      //   useditemAddress: {
+      //     lng: "",
+      //     lat: "",
+      //     zipcode: "",
+      //     address: "",
+      //     addressDetail: "",
+      //   },
+      // },
     });
   const address = useWatch({ control, name: "useditemAddress.address" });
 
@@ -170,12 +169,6 @@ export default function MarketContainer(P: IMarketContainerProps) {
       });
     };
   }, [address]);
-
-  // const onChangeFileUrls = async (fileUrl: string, index: number) => {
-  //   const newFileUrls = [...fileUrls];
-  //   newFileUrls[index] = fileUrl;
-  //   setFileUrls(newFileUrls);
-  // };
 
   const onChangeUrlsFiles = (url: string, file: File, index: number) => {
     const tempPreviewUrls = [...previewUrls];

@@ -1,10 +1,12 @@
 import "@toast-ui/editor/dist/i18n/ko-kr";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
-import { MutableRefObject } from "react";
+import { LegacyRef, MutableRefObject } from "react";
 
 type IEditorPageProps = {
-  contentsRef: MutableRefObject<undefined>;
+  // contentsRef: MutableRefObject<undefined>;
+  contentsRef: LegacyRef<Editor> | undefined;
+  // contentsRef: any;
   onChangeContents: (text: any) => void;
   initialValue: string | undefined;
 };
