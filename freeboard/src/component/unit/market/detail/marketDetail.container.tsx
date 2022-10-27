@@ -20,6 +20,11 @@ import {
   WarnModal,
 } from "../../../commons/modal/commonsModal";
 
+declare const window: Window &
+  typeof globalThis & {
+    kakao: any;
+  };
+
 export default function MarketDetailContainer() {
   const router = useRouter();
   const { data } = useQuery<
@@ -83,6 +88,7 @@ export default function MarketDetailContainer() {
     document.head.appendChild(script);
 
     script.onload = () => {
+      if (!window) return;
       window.kakao.maps.load(function () {
         const container = document.getElementById("map");
         const options = {
