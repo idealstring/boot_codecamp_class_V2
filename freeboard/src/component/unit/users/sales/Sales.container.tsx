@@ -8,6 +8,7 @@ import {
 import { dateFormatter, PriceFormatter } from "../../../../commons/utils/utils";
 import PageNation02 from "../../../commons/pagination/02/pagination02.container";
 import MyPageMarketBtnWrapper from "../mypageMarketBtn";
+import { useState } from "react";
 
 const FETCH_USEDITEMS_ISOLD = gql`
   query fetchUseditemsISold($search: String, $page: Int) {
@@ -31,10 +32,11 @@ const FETCH_USEDITEMS_COUNT_ISOLD = gql`
 `;
 
 export default function SalesContainer() {
+  const [pageCount, setPageCount] = useState(0);
   const { data: itemsData } = useQuery<
     Pick<IQuery, "fetchUseditemsISold">,
     IQueryFetchUseditemsISoldArgs
-  >(FETCH_USEDITEMS_ISOLD, { variables: { search: "", page: 1 } });
+  >(FETCH_USEDITEMS_ISOLD, { variables: { search: "", page: pageCount } });
   const { data: countData } = useQuery<
     Pick<IQuery, "fetchUseditemsCountISold">
   >(FETCH_USEDITEMS_COUNT_ISOLD);
@@ -71,7 +73,10 @@ export default function SalesContainer() {
             </a>
           </Link>
         ))}
-        <PageNation02 allCount={countData?.fetchUseditemsCountISold} />
+        <PageNation02
+          allCount={countData?.fetchUseditemsCountISold}
+          setPageCount={setPageCount}
+        />
       </S.BoardWrapper>
     </S.ContentsWrapper>
   );
