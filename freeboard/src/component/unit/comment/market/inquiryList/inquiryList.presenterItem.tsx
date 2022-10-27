@@ -9,6 +9,12 @@ import MarketCommentWriteContainer from "../inquiryWrite/inquiryWrite.container"
 import MarketInquiryDeleteModal from "../../../../commons/modal/marketReplayDelete";
 import ReplayListContainer from "../replyList/replyList.container";
 import MarektReplyWrite from "../../../../commons/comment/market/replyWrite";
+import {
+  IQuery,
+  IQueryFetchUseditemQuestionAnswersArgs,
+} from "../../../../../commons/types/generated/types";
+import { FETCH_USEDITEM_QUESTION_ANSWERS } from "./inquiryList.queries";
+import { useQuery } from "@apollo/client";
 
 export default function MarketCommentListPresenterItem(
   P: IInquiryListPresenterItemProps
@@ -28,7 +34,15 @@ export default function MarketCommentListPresenterItem(
   const onClickReplyBtn = () => {
     onClickReplyToggle();
   };
-  console.log(questions);
+  const { data: fetchQuestionAnswersLength } = useQuery<
+    Pick<IQuery, "fetchUseditemQuestionAnswers">,
+    IQueryFetchUseditemQuestionAnswersArgs
+  >(FETCH_USEDITEM_QUESTION_ANSWERS, {
+    variables: {
+      useditemQuestionId: questions._id,
+      page: 1,
+    },
+  });
 
   return (
     <>
@@ -82,7 +96,11 @@ export default function MarketCommentListPresenterItem(
                     : `${dateFormatter(questions.createdAt)}`}
                 </S.CommentViewContentDate>
                 <S.CommentReplyBtn onClick={onClickReplyBtn}>
-                  답글달기
+                  답글
+                  {fetchQuestionAnswersLength?.fetchUseditemQuestionAnswers
+                    .length !== 0
+                    ? ` (${fetchQuestionAnswersLength?.fetchUseditemQuestionAnswers.length})`
+                    : null}
                 </S.CommentReplyBtn>
                 <S.CommentUpdateBtn onClick={onClickUpdateBtn}>
                   수정

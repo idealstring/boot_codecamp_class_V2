@@ -50,6 +50,8 @@ export default function ReplayListContainer(P: IReplayListContainerProps) {
     });
   };
 
+  console.log(fetchQuestionAnswers?.fetchUseditemQuestionAnswers.length);
+
   return (
     <ReplayListPresenter
       fetchQuestionAnswers={fetchQuestionAnswers}

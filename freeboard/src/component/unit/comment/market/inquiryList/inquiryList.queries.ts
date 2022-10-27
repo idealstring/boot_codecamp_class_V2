@@ -32,3 +32,14 @@ export const FETCH_USER_LOGGED_IN = gql`
     }
   }
 `;
+
+export const FETCH_USEDITEM_QUESTION_ANSWERS = gql`
+  query fetchUseditemQuestionAnswers($useditemQuestionId: ID!, $page: Int) {
+    fetchUseditemQuestionAnswers(
+      useditemQuestionId: $useditemQuestionId
+      page: $page
+    ) {
+      _id
+    }
+  }
+`;
