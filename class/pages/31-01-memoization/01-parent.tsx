@@ -22,10 +22,10 @@ export default function MemoizationParentPage() {
   const onClickCountState = useCallback(() => {
     // 잘못 사용 사례 대표. state값도 기억한다.
     // console.log(countState + 1);
-    // setCountState(countState + 1);
+    setCountState(countState + 1);
 
     // 따라서 프리브에서 가져와야 한다.
-    setCountState((prev) => prev + 1);
+    // setCountState((prev) => prev + 1);
   }, []);
 
   // useMemo로 나만의 useCallback 만들어보기. 실제로는 잘 사용하지 않음. 그냥 이럴수도 있다만 알아두면 됨.

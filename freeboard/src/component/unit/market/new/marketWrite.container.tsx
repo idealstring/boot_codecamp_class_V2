@@ -23,7 +23,7 @@ import { FailModal } from "../../../commons/modal/commonsModal";
 
 declare const window: Window &
   typeof globalThis & {
-    toastui: any;
+    kakao: any;
   };
 
 export default function MarketContainer(P: IMarketContainerProps) {
