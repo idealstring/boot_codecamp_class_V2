@@ -27,7 +27,6 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  algin-items: center;
 `;
 
 export const WriterPwdWrapper = styled.div`
@@ -37,7 +36,6 @@ export const WriterPwdWrapper = styled.div`
   flex-direction: ${(props: IBoardWriteStyleProps) =>
     props.isNormalScreen ? "row" : "column"};
   justify-content: space-between;
-  algin-items: center;
 `;
 
 export const WriterPwd = styled.div`
@@ -45,7 +43,6 @@ export const WriterPwd = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  algin-items: flex-start;
 `;
 
 export const Subtitle = styled.div`
@@ -93,6 +90,13 @@ export const SubtitleWrapper = styled.div`
   flex-direction: column;
 `;
 
+export const ZipcodehWrapper = styled.div`
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const InputTitle = styled.input`
   margin-top: 16px;
   padding: 16px;
@@ -130,7 +134,7 @@ export const TextareaContent = styled.textarea`
 `;
 
 export const InputW85pxH52px = styled.input`
-  margin-top: 16px;
+  /* margin-top: 16px; */
   padding: 16px;
   width: 85px;
   height: 52px;

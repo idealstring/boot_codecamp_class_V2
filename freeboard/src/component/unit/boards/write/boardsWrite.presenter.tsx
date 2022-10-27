@@ -83,7 +83,7 @@ export default function BoardWritePresenter(P: IBoardWritePresenterProps) {
         </S.SubtitleWrapper>
         <S.SubtitleWrapper>
           <S.Subtitle>주소</S.Subtitle>
-          <div className="우편번호">
+          <S.ZipcodehWrapper>
             <S.InputW85pxH52px
               type="text"
               id="zipcode"
@@ -96,7 +96,7 @@ export default function BoardWritePresenter(P: IBoardWritePresenterProps) {
               }
             />
             <ZipcodeModal setInputData={setInputData} />
-          </div>
+          </S.ZipcodehWrapper>
           <S.InputW100per
             type="text"
             id="address"
