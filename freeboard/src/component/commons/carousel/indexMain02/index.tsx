@@ -35,8 +35,9 @@ export default function IndexMainCarouselSwipe() {
           }}
           pagination={{
             clickable: true,
+            enabled: false,
           }}
-          navigation={false}
+          navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >

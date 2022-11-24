@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { StyleSet } from "../../../../commons/style/styleSet";
+import { IStylesProps } from "./userRegister.types";
 
 export const Container = styled.div`
   width: 100%;
@@ -61,23 +62,15 @@ export const AllCheck = styled.span`
 export const EssentialCheck = styled.span`
   margin: 0 0 0 10px;
   font-size: ${StyleSet.fontSize.b3};
-  :after {
-    content: " (필수)";
-    color: ${StyleSet.colors.point01};
-    font-size: ${StyleSet.fontSize.b5};
-    font-weight: 300;
-  }
 `;
 
-export const SelectedCheck = styled.span`
-  margin: 0 0 0 10px;
-  font-size: ${StyleSet.fontSize.b3};
-  :after {
-    content: " (선택)";
-    color: ${StyleSet.colors.lightGray02};
-    font-size: ${StyleSet.fontSize.b5};
-    font-weight: 300;
-  }
+export const CheckText = styled.span`
+  color: ${(props: IStylesProps) =>
+    props.essential === "필수"
+      ? `${StyleSet.colors.point01}`
+      : `${StyleSet.colors.lightGray02}`};
+  font-size: ${StyleSet.fontSize.b5};
+  font-weight: 300;
 `;
 
 export const Line = styled.hr`

@@ -44,7 +44,7 @@ const SlideButton = styled.div`
   width: 50px;
   padding: 0 10px;
   border-radius: 20px;
-  background-color: #none;
+  background-color: none;
 
   cursor: pointer;
   :hover svg {

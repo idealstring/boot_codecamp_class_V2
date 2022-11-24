@@ -12,7 +12,14 @@ const schema = yup.object({
 });
 
 export default function UserRegisterPresenter(P: IUserRegisterPresenterProps) {
-  const { onClickRegister, onClickSignIn } = P;
+  const {
+    onClickRegister,
+    onClickSignIn,
+    dataList,
+    isCheckedAll,
+    isChecked,
+    checkList,
+  } = P;
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -55,18 +62,29 @@ export default function UserRegisterPresenter(P: IUserRegisterPresenterProps) {
             <S.Label>약관동의</S.Label>
             <S.ConditionsWrapper>
               <S.Inner>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={isCheckedAll}
+                  checked={checkList.length === dataList.length ? true : false}
+                />
                 <S.AllCheck>전체 동의</S.AllCheck>
               </S.Inner>
               <S.Line />
-              <S.Inner>
-                <input type="checkbox" />
-                <S.EssentialCheck>만 14세 이상입니다</S.EssentialCheck>
-              </S.Inner>
-              <S.Inner>
-                <input type="checkbox" />
-                <S.SelectedCheck>개인정보 마케팅 활용 동의</S.SelectedCheck>
-              </S.Inner>
+              {dataList.map((el, i) => (
+                <S.Inner>
+                  <input
+                    type="checkbox"
+                    onChange={isChecked(el.id)}
+                    checked={checkList.includes(el.id) ? true : false}
+                  />
+                  <S.EssentialCheck>
+                    {el.text}{" "}
+                    <S.CheckText essential={el.essential}>
+                      {`(${el.essential})`}
+                    </S.CheckText>
+                  </S.EssentialCheck>
+                </S.Inner>
+              ))}
             </S.ConditionsWrapper>
             <S.UserRegisterBtn>회원가입하기</S.UserRegisterBtn>
           </S.Form>
