@@ -12,7 +12,7 @@ export default function BoardDetailPresenter(P: IBoardDetailPresenterProps) {
     data,
     onClickLinkModal,
     onClickMapModal,
-    modal,
+    mapModal,
     onClickLikeBtn,
     onClickDislikeBtn,
     onClickMoveToList,
@@ -25,15 +25,14 @@ export default function BoardDetailPresenter(P: IBoardDetailPresenterProps) {
       <S.TitleWrapper>
         <S.Title>{data ? data.fetchBoard.title : "Loading..."}</S.Title>
         <S.TitleInfoTop>
-          {/* {data?.fetchBoard?.user?.picture} */}
           {data?.fetchBoard.writer}
-          {` `}
           {dateTimeFormatter(data?.fetchBoard.createdAt)}
         </S.TitleInfoTop>
         <S.TitleInfoBottom isNormalScreen={isNormalScreen}>
-          <S.IconWrapper
-            onClick={onClickLinkModal}
-            // onMouseLeave={P.onRolloverLinkModal}
+          <S.IconButton
+            onClick={() =>
+              onClickLinkModal(`https://sanghyeon.shop${router.asPath}`)
+            }
           >
             <svg
               width="28"
@@ -47,16 +46,8 @@ export default function BoardDetailPresenter(P: IBoardDetailPresenterProps) {
                 fill="#06c"
               />
             </svg>
-          </S.IconWrapper>
-          {modal.link ? (
-            <S.LinkModal
-              onMouseLeave={onClickLinkModal}
-              isNormalScreen={isNormalScreen}
-            >
-              {router.asPath}
-            </S.LinkModal>
-          ) : null}
-          <S.IconWrapper
+          </S.IconButton>
+          <S.IconButton
             onClick={onClickMapModal} // onMouseLeave={P.onRolloverMapModal}
           >
             <svg
@@ -69,15 +60,21 @@ export default function BoardDetailPresenter(P: IBoardDetailPresenterProps) {
                 fill="#06c"
               />
             </svg>
-          </S.IconWrapper>
-          {modal.map ? (
+          </S.IconButton>
+          {mapModal ? (
             <S.MapModal
               onMouseLeave={onClickMapModal}
               isNormalScreen={isNormalScreen}
             >
-              {data?.fetchBoard.boardAddress.address}
-              <br />
-              {data?.fetchBoard.boardAddress.addressDetail}
+              {data?.fetchBoard.boardAddress?.address === null ? (
+                <>
+                  {data?.fetchBoard.boardAddress.address}
+                  <br />
+                  {data?.fetchBoard.boardAddress.addressDetail}
+                </>
+              ) : (
+                <>등록된 주소가 없습니다.</>
+              )}
             </S.MapModal>
           ) : null}
         </S.TitleInfoBottom>

@@ -2,12 +2,9 @@ import { BlockList } from "net";
 
 export type IBoardDetailPresenterProps = {
   data: any;
-  onClickLinkModal: () => void;
+  onClickLinkModal: (link: string) => any;
   onClickMapModal: () => void;
-  modal: {
-    link: boolean;
-    map: boolean;
-  };
+  mapModal: boolean;
   onClickLikeBtn: () => void;
   onClickDislikeBtn: () => void;
   onClickMoveToList: () => void;

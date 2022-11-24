@@ -20,6 +20,12 @@ export const GlobalStyle = css`
     box-sizing: border-box;
     font-size: 16px;
   }
+  button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
 
   .ant-btn-primary {
     border-color: ${StyleSet.colors.point01};
@@ -142,7 +148,7 @@ export const GlobalStyle = css`
       background-color: ${StyleSet.colors.backgroundBlack};
     }
     .ant-modal-confirm-body .ant-modal-content input {
-      :: placeholder {
+      ::placeholder {
         color: ${StyleSet.colors.white};
       }
     }

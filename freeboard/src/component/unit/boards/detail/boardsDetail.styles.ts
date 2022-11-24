@@ -78,7 +78,7 @@ export const TitleInfoBottom = styled.div`
   top: ${(props: IScreenProps) => (props.isNormalScreen ? "110px" : null)};
 `;
 
-export const IconWrapper = styled.div`
+export const IconButton = styled.button`
   margin: 0 5px;
   width: 26px;
   height: 26px;
@@ -89,40 +89,12 @@ export const IconWrapper = styled.div`
   align-items: center;
 `;
 
-export const LinkModal = styled.div`
-  top: ${(props: IScreenProps) => (props.isNormalScreen ? "35px" : "40px")};
-  right: 30px;
-  padding: 10px 20px;
-  background-color: #999999;
-  color: #fff;
-
-  position: absolute;
-  &:after {
-    position: absolute;
-    content: "";
-    top: -5px;
-    right: ${(props: IScreenProps) =>
-      props.isNormalScreen ? "20px" : "133px"};
-    width: 10px;
-    height: 10px;
-    background-color: #999999;
-    transform: rotate(45deg);
-  }
-`;
-
-// export const MapIcon = styled.button`
-//   width: 18px;
-//   height: 26px;
-// `;
-
 export const MapModal = styled.div`
   top: ${(props: IScreenProps) => (props.isNormalScreen ? "35px" : "40px")};
   right: -8px;
   padding: 10px 20px;
   background-color: #999999;
   color: #ffffff;
-
-  // display: none;
 
   position: absolute;
   &:after {
@@ -142,7 +114,6 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  algin-items: center;
 `;
 
 export const ContentInner = styled.div`
@@ -165,7 +136,6 @@ export const YoutubeUrlWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  algin-items: center;
 `;
 
 export const LikeDislikeWrapper = styled.div`
@@ -183,7 +153,6 @@ export const LikeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  algin-items: center;
   text-align: center;
   color: ${StyleSet.colors.point02};
   cursor: pointer;
@@ -195,7 +164,6 @@ export const DislikeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  algin-items: center;
   text-align: center;
   color: #828282;
   cursor: pointer;
