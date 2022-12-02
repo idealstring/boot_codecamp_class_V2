@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function SignInPresenter(P: ISignInPresenterProps) {
-  const { onClickSignIn, onClickRePassword, onClickRegister, schema } = P;
+  const { onClickSignIn, onClickRegister, schema } = P;
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -34,10 +34,10 @@ export default function SignInPresenter(P: ISignInPresenterProps) {
               로그인
             </S.SignInBtn>
           </S.Form>
-          <S.LoginWrapper>
-            <S.LoginBtn onClick={onClickRePassword}>비밀번호 재설정</S.LoginBtn>
-            <S.LoginBtn onClick={onClickRegister}>회원가입</S.LoginBtn>
-          </S.LoginWrapper>
+          <S.RegisterWrapper>
+            <span>아직 아이디가 없으신가요?</span>{" "}
+            <button onClick={onClickRegister}>회원가입</button>
+          </S.RegisterWrapper>
         </S.Wrapper>
       </S.Container>
     </>

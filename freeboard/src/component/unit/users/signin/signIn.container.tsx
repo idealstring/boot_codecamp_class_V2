@@ -25,7 +25,7 @@ export default function SignInContainer() {
     password: yup.string().required(`false`),
   });
 
-  const onClickSignIn = async (data: IOnClickSignInProps) => {
+  const onClickSignIn = () => async (data: IOnClickSignInProps) => {
     try {
       const result = await loginUser({
         variables: {
@@ -47,10 +47,6 @@ export default function SignInContainer() {
     }
   };
 
-  const onClickRePassword = () => {
-    InfoModal("이메일 인증 기능 곧 구현할게요. 조금만 기다려 주세요:)");
-  };
-
   const onClickRegister = () => {
     router.push("/users/new");
   };
@@ -59,7 +55,6 @@ export default function SignInContainer() {
     <>
       <SignInPresenter
         onClickSignIn={onClickSignIn}
-        onClickRePassword={onClickRePassword}
         onClickRegister={onClickRegister}
         schema={schema}
       />

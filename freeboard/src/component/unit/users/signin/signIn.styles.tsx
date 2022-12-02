@@ -87,21 +87,27 @@ export const SignInBtn = styled.button`
   cursor: pointer;
 `;
 
-export const LoginWrapper = styled.div`
+export const RegisterWrapper = styled.div`
   margin: 25px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`;
 
-export const LoginBtn = styled.button`
-  margin: 25px 10px;
-  text-align: center;
-  font-size: ${StyleSet.fontSize.b4};
-  border: none;
-  background-color: transparent;
+  span {
+    font-size: ${StyleSet.fontSize.b4};
+  }
+  button {
+    margin: 25px 10px;
+    text-align: center;
+    font-size: ${StyleSet.fontSize.b4};
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 
-  cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;

@@ -1,17 +1,11 @@
 import { FieldError } from "rc-field-form/lib/interface";
-import { BaseSyntheticEvent } from "react";
-import {
-  FieldValues,
-  SubmitErrorHandler,
-  SubmitHandler,
-} from "react-hook-form";
+import { FieldErrorsImpl, Merge } from "react-hook-form";
 import { OptionalObjectSchema, TypeOfShape } from "yup/lib/object";
 import { RequiredStringSchema } from "yup/lib/string";
 import { AnyObject } from "yup/lib/types";
 
 export type ISignInPresenterProps = {
-  onClickSignIn: (data: IOnClickSignInProps) => Promise<void>;
-  onClickRePassword: () => void;
+  onClickSignIn: () => (data: IOnClickSignInProps) => Promise<void>;
   onClickRegister: () => void;
   schema: OptionalObjectSchema<
     {
@@ -33,6 +27,6 @@ export type IErrorProps = {
     | string
     | FieldError
     | any
-    // | Merge<FieldError, FieldErrorsImpl<any>>
+    | Merge<FieldError, FieldErrorsImpl<any>>
     | undefined;
 };
