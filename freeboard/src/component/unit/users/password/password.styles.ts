@@ -39,7 +39,7 @@ export const PasswordUpdateBtn = styled.button`
 `;
 
 export const CancelButtonWrapper = styled.div`
-  margin: 20px;
+  margin: 20px 0 0 0;
   width: 100%;
 
   display: flex;

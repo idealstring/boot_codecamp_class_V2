@@ -1,7 +1,7 @@
 import { dateFormatter, PointFormatter } from "../../../../commons/utils/utils";
 import { useMoveToPage } from "../../../commons/hooks/useMoveToPage";
 import PageNation02 from "../../../commons/pagination/02/pagination02.container";
-import * as S from "./myPage.styles";
+import * as S from "./mypage.styles";
 import { IMyPagePresenterProps } from "./myPage.types";
 
 function MyPagePresenter(P: IMyPagePresenterProps) {

@@ -11,13 +11,15 @@ import { LOGIN_USER } from "./signIn.queries";
 import * as yup from "yup";
 import { IOnClickSignInProps } from "./signIn.types";
 import { FailModal, InfoModal } from "../../../commons/modal/commonsModal";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function SignInContainer() {
   const [loginUser] = useMutation<
     Pick<IMutation, "loginUser">,
     IMutationLoginUserArgs
   >(LOGIN_USER);
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
 
   const schema = yup.object({
@@ -25,7 +27,12 @@ export default function SignInContainer() {
     password: yup.string().required(`false`),
   });
 
-  const onClickSignIn = () => async (data: IOnClickSignInProps) => {
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
+
+  const onClickSignIn = async (data: IOnClickSignInProps) => {
     try {
       const result = await loginUser({
         variables: {
@@ -56,7 +63,9 @@ export default function SignInContainer() {
       <SignInPresenter
         onClickSignIn={onClickSignIn}
         onClickRegister={onClickRegister}
-        schema={schema}
+        register={register}
+        handleSubmit={handleSubmit}
+        formState={formState}
       />
     </>
   );

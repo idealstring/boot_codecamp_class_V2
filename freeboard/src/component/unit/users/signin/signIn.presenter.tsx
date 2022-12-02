@@ -1,14 +1,9 @@
 import * as S from "./signIn.styles";
 import { ISignInPresenterProps } from "./signIn.types";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function SignInPresenter(P: ISignInPresenterProps) {
-  const { onClickSignIn, onClickRegister, schema } = P;
-  const { register, handleSubmit, formState } = useForm({
-    resolver: yupResolver(schema),
-    mode: "onChange",
-  });
+  const { onClickSignIn, onClickRegister, register, handleSubmit, formState } =
+    P;
 
   return (
     <>
