@@ -36,7 +36,6 @@ export default function UserRegisterContainer() {
   };
 
   const onClickRegister = async (data: IOnClickRegisterProps) => {
-    console.log(data);
     try {
       await createUser({
         variables: {

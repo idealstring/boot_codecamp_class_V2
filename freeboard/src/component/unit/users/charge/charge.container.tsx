@@ -66,7 +66,6 @@ export default function ChargeContainer() {
     IMutationCreatePointTransactionOfLoadingArgs
   >(CREATE_POINT_TRANSACTION_OF_LOADING);
   const [veiwPrice, setViewPrice] = useState(0);
-  console.log(formState.errors.chargePoint?.message);
 
   const onClickPrice = (e: MouseEvent<HTMLButtonElement>) => {
     setValue(
@@ -102,8 +101,6 @@ export default function ChargeContainer() {
         // callback
         if (rsp.success) {
           // 결제 성공 시 로직,
-          console.log(rsp);
-          console.log(rsp.success);
           createPointTransactionOfLoading({
             variables: {
               impUid: rsp.imp_uid,

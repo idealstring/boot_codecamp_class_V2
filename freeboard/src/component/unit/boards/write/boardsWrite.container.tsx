@@ -165,7 +165,6 @@ export default function BoardWriteContainer(P: IBoardWriteContainerProps) {
     if (inputData.fileUrls) {
       myVariables.updateBoardInput.images = inputData.fileUrls;
     }
-    console.log(myVariables);
     if (inputData.zipcode || inputData.address || inputData.addressDetail) {
       myVariables.updateBoardInput = {
         ...myVariables.updateBoardInput,

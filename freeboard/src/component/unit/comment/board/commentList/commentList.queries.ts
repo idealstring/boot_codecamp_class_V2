@@ -9,6 +9,9 @@ export const FETCH_BOARD_COMMENTS = gql`
       rating
       createdAt
       updatedAt
+      user {
+        _id
+      }
     }
   }
 `;

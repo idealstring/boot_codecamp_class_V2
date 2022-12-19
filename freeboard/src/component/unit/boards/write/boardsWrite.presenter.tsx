@@ -141,7 +141,7 @@ export default function BoardWritePresenter(P: IBoardWritePresenterProps) {
             ))}
           </S.ImgUploadWrapper>
         </S.SubtitleWrapper>
-        <S.SubtitleWrapper>
+        {/* <S.SubtitleWrapper>
           <S.Subtitle>메인 설정</S.Subtitle>
           <S.InputRadioWrapper>
             <S.InputRadio type="radio" name="select_main" id="youtube" />
@@ -149,7 +149,7 @@ export default function BoardWritePresenter(P: IBoardWritePresenterProps) {
             <S.InputRadio type="radio" name="select_main" id="picture" />
             <S.RadioLabel htmlFor="picture">사진</S.RadioLabel>
           </S.InputRadioWrapper>
-        </S.SubtitleWrapper>
+        </S.SubtitleWrapper> */}
         <S.SubmitBtnWrapper>
           <S.SubmitBtn
             onClick={isEdit ? UpdateBtn : CreateBtn}

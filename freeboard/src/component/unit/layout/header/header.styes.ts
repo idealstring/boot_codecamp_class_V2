@@ -20,7 +20,7 @@ export const Wrapper = styled.header`
 `;
 
 export const NavBtnWrapper = styled.div`
-  width: 120px;
+  width: 80px;
 `;
 export const NavBtn = styled.button`
   margin: 10px;
@@ -77,7 +77,7 @@ export const Join = styled.button`
 `;
 
 export const MemberWrapper = styled.div`
-  width: 120px;
+  width: 80px;
 
   display: flex;
   flex-direction: row;

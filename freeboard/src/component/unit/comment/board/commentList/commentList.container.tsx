@@ -1,7 +1,10 @@
 import CommentListPresenter from "./commentList.presenter";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { FETCH_BOARD_COMMENTS } from "./commentList.queries";
+import {
+  FETCH_BOARD_COMMENTS,
+  FETCH_USER_LOGGED_IN,
+} from "./commentList.queries";
 import {
   IQuery,
   IQueryFetchBoardCommentsArgs,
@@ -9,7 +12,6 @@ import {
 
 export default function CommentListContainer() {
   const router = useRouter();
-
   const { data: existingData, fetchMore } = useQuery<
     Pick<IQuery, "fetchBoardComments">,
     IQueryFetchBoardCommentsArgs

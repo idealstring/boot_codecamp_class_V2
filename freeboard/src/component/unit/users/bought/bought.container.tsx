@@ -40,7 +40,6 @@ export default function BoughtContainer() {
   const { data: countData } = useQuery<
     Pick<IQuery, "fetchUseditemsCountIBought">
   >(FETCH_USEDITEMS_COUNT_IBOUGHT);
-  console.log(countData?.fetchUseditemsCountIBought);
 
   return (
     <S.ContentsWrapper>

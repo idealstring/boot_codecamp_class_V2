@@ -67,19 +67,15 @@ export default function IndexMainCarousel() {
   const onClickNext = () => {
     if (currentSlide >= totalSlide) {
       setCurrentSlide(0);
-      console.log(slideRef, slideRef.current);
     } else {
       setCurrentSlide(currentSlide + 1);
-      console.log(slideRef, slideRef.current);
     }
   };
   const onClickPrev = () => {
     if (currentSlide === 0) {
       setCurrentSlide(totalSlide);
-      console.log(slideRef, slideRef.current);
     } else {
       setCurrentSlide(currentSlide - 1);
-      console.log(slideRef, slideRef.current);
     }
   };
 

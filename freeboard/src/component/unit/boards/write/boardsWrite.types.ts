@@ -62,6 +62,7 @@ export type IBoardWritePresenterProps = {
   existingData?: Pick<IQuery, "fetchBoard">;
   setInputData: Dispatch<SetStateAction<IInputDateProps>>;
   inputData: IInputDateProps;
+  onClickUploadFileBtn: () => void;
 };
 
 // styles

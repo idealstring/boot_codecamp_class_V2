@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 중고마켓
 
-## Getting Started
+## sanghyeon.shop
 
-First, run the development server:
+## 프로젝트 소개
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+CRUD 게시판 프로젝트입니다. 비회원이 쓸 수 있는 자유게시판과, 회원이 쓸 수 있는 중고마켓을 만들었습니다. 중고마켓은 회원 가입 후 누구나 물건을 올릴 수 있으며, 포인트 충전 후 구매하도록 구현했습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 프로젝트 스택
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+HTML, CSS, JavaScript, TypeScript, React, Next.js, Emotion, Apollo-Client, recoil, GraphQL, AWS, Docker, Antd, ToastUI
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 프로젝트 상세 내용
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### # 메인
 
-## Learn More
+- 특정 단어 검색 후 불러오기
+- 반응형
 
-To learn more about Next.js, take a look at the following resources:
+### # 중고마켓 게시판 리스트
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 최근 본 상품(최대 5개)
+- 상품등록
+- 장바구니 수
+- flex
+- 무한스클롤 적용
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### # 중고마켓 상세페이지
 
-## Deploy on Vercel
+- 태그 slice
+- 가격 local….
+- kakaomap api를 이용해 거래 위치 지도 표기
+- 담기 버튼 시 장바구니 숫자 증가.
+- 댓글의 답변이 있을 경우 답변 갯수 표기
+- 작성자만 수정 삭제 버튼 활성화
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### # 중고마켓 상품등록
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- kakao 주소 검색 api 사용. 주소 클릭 시 자동 입력.
+- ToastUI 웹에디터 적용
+- fileReader를 이용한 이미지 미리보기 구현.
+
+### # 자유게시판 리스트
+
+- 추천순 상위 게시글 4개 표시
+- 검색 적용(디바운싱 자동 검색, 날짜 설정 가능)
+- 페이지네이션 직접 구현
+
+### # 자유게시판 상세페이지
+
+- 복사 버튼 클릭 시 클립보드에 주소 자동 복사
+- 추천 비추천 버튼
+- 댓글 등록 시 게시글에 대한 의견을 별점으로도 동시 표기 가능
+- 비밀번호가 다를 경우 수정 불가.
+
+### # 자유게시판 글쓰기
+
+- 필수 입력 모두 기입 시 등록 버튼 활성화.
+- kakao 주소 검색 api 사용. 주소 클릭 시 자동 입력.

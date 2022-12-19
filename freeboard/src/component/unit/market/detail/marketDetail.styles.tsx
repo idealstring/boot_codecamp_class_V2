@@ -43,8 +43,6 @@ export const DetailNav = styled.div`
   position: sticky;
   top: 0;
   background-color: #fff;
-
-  border-bottom: 1px solid ${StyleSet.colors.lightGray02};
 `;
 
 export const ImageWrapper = styled.div`

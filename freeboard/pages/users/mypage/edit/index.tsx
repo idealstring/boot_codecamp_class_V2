@@ -69,7 +69,6 @@ export default function UserEditPage() {
           },
         },
       });
-      console.log(rere);
       Modal.info({ content: "회원정보 수정 완료!" });
       router.push("/users/mypage");
     } catch (error) {

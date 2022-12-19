@@ -7,7 +7,6 @@ export default function PaginationContainer(P: IPaginationProps) {
   const [startPage, setStartPage] = useState<number>(1);
   const [currentPage, setCurrentPage] = useState(0);
   const lastPage = boardsCount ? Math.ceil(boardsCount / 10) : 0;
-  // console.log(`lastPage : ${lastPage}`);
 
   const onClickPrevPage = () => {
     if (startPage === 1) return;

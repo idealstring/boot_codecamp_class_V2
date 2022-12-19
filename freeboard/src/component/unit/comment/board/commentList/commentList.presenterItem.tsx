@@ -71,6 +71,7 @@ export default function CommentListPresenterItem(
                       />
                     </svg>
                   </S.CommentViewBtn>
+
                   <CommentDeleteModal id={comment?._id} />
                 </S.CommentViewBtnWrapper>
               </S.ViewContentTop>

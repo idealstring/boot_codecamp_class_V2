@@ -41,7 +41,6 @@ export default function BasketContainer() {
   const { data: countData } = useQuery<
     Pick<IQuery, "fetchUseditemsCountIPicked">
   >(FETCH_USEDITEMS_COUNT_IPICKED);
-  console.log(countData?.fetchUseditemsCountIPicked);
 
   return (
     <S.ContentsWrapper>

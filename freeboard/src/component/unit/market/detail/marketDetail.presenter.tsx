@@ -92,7 +92,7 @@ export default function MarketDetailPresenter(P: IMarketDetailPresenterProps) {
         </S.TopWrapper>
       </S.Container>
       <S.DeailNavWrapper>
-        <S.DetailNav>상세보기 댓글보기</S.DetailNav>
+        <S.DetailNav>상세보기</S.DetailNav>
       </S.DeailNavWrapper>
       <S.Container>
         <S.BodyWrapper>
