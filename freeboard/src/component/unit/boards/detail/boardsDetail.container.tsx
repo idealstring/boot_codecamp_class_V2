@@ -57,14 +57,22 @@ export default function BoardDetailContainer() {
         variables: {
           boardId: router.query.detail,
         },
-        refetchQueries: [
-          {
+        optimisticResponse: {
+          likeBoard: (data?.fetchBoard.likeCount || 0) + 1,
+        },
+        update(cache, { data }) {
+          cache.writeQuery({
             query: FETCH_BOARD,
-            variables: {
-              boardId: router.query.detail,
+            variables: { boardId: router.query.detail },
+            data: {
+              fetchBoard: {
+                _id: router.query.detail,
+                __typename: "Board",
+                likeCount: data?.likeBoard,
+              },
             },
-          },
-        ],
+          });
+        },
       });
     } catch (error) {
       if (error instanceof Error) FailModal(error.message);
