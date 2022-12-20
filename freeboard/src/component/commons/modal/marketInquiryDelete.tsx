@@ -1,15 +1,15 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
 import { FailModal } from "./commonsModal";
-import { useMutation } from "@apollo/client";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
+import { Reference, StoreObject, useMutation } from "@apollo/client";
 import * as S from "../../unit/modal/inquiryDelete/inquiryModal.styles";
-import { DELETE_USEDITEM_QUESTION } from "../../unit/comment/market/inquiryList/inquiryList.queries";
 import { ICommentDeleteModalProps } from "../../unit/modal/inquiryDelete/inquiryModal.types";
+import { DELETE_USEDITEM_QUESTION } from "../../unit/comment/market/inquiryList/inquiryList.queries";
 
 export default function MarketInquiryDeleteModal(P: ICommentDeleteModalProps) {
   const { id } = P;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [deleteUseditemQuestion] = useMutation(DELETE_USEDITEM_QUESTION);
 
   const showModal = () => {
@@ -37,7 +37,8 @@ export default function MarketInquiryDeleteModal(P: ICommentDeleteModalProps) {
               fetchUseditemQuestions: (prev, { readField }) => {
                 const deletedId = data.deleteUseditemQuestion;
                 const filterdPrev = prev.filter(
-                  (el) => readField("_id", el) !== deletedId
+                  (el: Reference | StoreObject | undefined) =>
+                    readField("_id", el) !== deletedId
                 );
                 return [...filterdPrev];
               },

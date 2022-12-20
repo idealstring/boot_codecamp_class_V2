@@ -1,27 +1,27 @@
 import { useState } from "react";
+import { useQuery } from "@apollo/client";
 import * as S from "./inquiryList.styles";
+import ReplayListContainer from "../replyList/replyList.container";
+import { IInquiryListPresenterItemProps } from "./inquiryList.types";
+import { FETCH_USEDITEM_QUESTION_ANSWERS } from "./inquiryList.queries";
+import MarektReplyWrite from "../../../../commons/comment/market/replyWrite";
+import MarketCommentWriteContainer from "../inquiryWrite/inquiryWrite.container";
+import MarketInquiryDeleteModal from "../../../../commons/modal/marketInquiryDelete";
 import {
   dateFormatter,
   dateTimeFormatter,
 } from "../../../../../commons/utils/utils";
-import { IInquiryListPresenterItemProps } from "./inquiryList.types";
-import MarketCommentWriteContainer from "../inquiryWrite/inquiryWrite.container";
-import MarketInquiryDeleteModal from "../../../../commons/modal/marketReplayDelete";
-import ReplayListContainer from "../replyList/replyList.container";
-import MarektReplyWrite from "../../../../commons/comment/market/replyWrite";
 import {
   IQuery,
   IQueryFetchUseditemQuestionAnswersArgs,
 } from "../../../../../commons/types/generated/types";
-import { FETCH_USEDITEM_QUESTION_ANSWERS } from "./inquiryList.queries";
-import { useQuery } from "@apollo/client";
 
 export default function MarketCommentListPresenterItem(
   P: IInquiryListPresenterItemProps
 ) {
   const { questions, fetchUserLoggedIn } = P;
-  const [isEdit, setIsEdit] = useState(false);
-  const [isReply, setReply] = useState(false);
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [isReply, setReply] = useState<boolean>(false);
   const onClickIsEditToggle = () => {
     setIsEdit((isEdit) => !isEdit);
   };

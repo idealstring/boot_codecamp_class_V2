@@ -1,10 +1,10 @@
 import { gql, useQuery } from "@apollo/client";
+import MyPagePresenter from "./mypage.presenter";
 import { useState } from "react";
 import {
   IQuery,
   IQueryFetchPointTransactionsArgs,
 } from "../../../../commons/types/generated/types";
-import MyPagePresenter from "./myPage.presenter";
 
 const FETCH_USER_LOGGED_IN = gql`
   query fetchUserLoggedIn {

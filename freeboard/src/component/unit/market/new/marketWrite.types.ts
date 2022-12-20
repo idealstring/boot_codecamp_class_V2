@@ -14,7 +14,7 @@ import { IQuery } from "../../../../commons/types/generated/types";
 export type IMarketContainerProps = {
   isEdit: boolean;
   existingData?: Pick<IQuery, "fetchUseditem"> | undefined;
-  loading: any;
+  loading?: any;
 };
 
 type IValueProps = {

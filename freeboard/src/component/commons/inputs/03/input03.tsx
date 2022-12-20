@@ -5,7 +5,6 @@ import { IQuery } from "../../../../commons/types/generated/types";
 
 const Input = styled.input`
   width: 100%;
-
   border: none;
   border-bottom: 1px solid ${StyleSet.colors.lightGray02};
   background-color: transparent;
@@ -21,7 +20,5 @@ type IInput03Props = {
 
 export default function Input03(P: IInput03Props) {
   const { type, register, placeholder, error } = P;
-  return (
-    <Input type={type} placeholder={placeholder} {...register} error={error} />
-  );
+  return <Input type={type} placeholder={placeholder} {...register} />;
 }

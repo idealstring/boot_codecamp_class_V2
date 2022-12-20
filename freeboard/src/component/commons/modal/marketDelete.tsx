@@ -1,16 +1,16 @@
 import { Modal } from "antd";
 import { useContext } from "react";
 import { useRouter } from "next/router";
+import { FailModal } from "./commonsModal";
 import { useMutation } from "@apollo/client";
-import { PostFail } from "./commonsModal";
 import { WindowSizeContext } from "../responsive";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
+import { ContentBtn } from "../../unit/modal/marketDelete/boardDelete.styles";
+import { DELETE_USEDITEM } from "../../unit/modal/marketDelete/boardDelete.queries";
 import {
   IMutation,
   IMutationDeleteUseditemArgs,
 } from "../../../commons/types/generated/types";
-import { DELETE_USEDITEM } from "../../unit/modal/marketDelete/boardDelete.queries";
-import { ContentBtn } from "../../unit/modal/marketDelete/boardDelete.styles";
 const { confirm } = Modal;
 
 const MarketDeleteModal = () => {
@@ -30,7 +30,7 @@ const MarketDeleteModal = () => {
       });
       router.push("/market");
     } catch (error) {
-      if (error instanceof Error) PostFail(error.message);
+      if (error instanceof Error) FailModal(error.message);
     }
   };
 

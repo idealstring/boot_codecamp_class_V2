@@ -3,7 +3,7 @@ import MarketContainer from "../../../src/component/unit/market/new/marketWrite.
 export default function MarketPage() {
   return (
     <>
-      <MarketContainer />
+      <MarketContainer isEdit={false} />
     </>
   );
 }

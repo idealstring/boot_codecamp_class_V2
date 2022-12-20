@@ -40,7 +40,7 @@ export default function MarketInquiryWriteContainer(
     mode: "onChange",
   });
 
-  const onClickCreateBtn = async (data: SubmitHandler<FieldValues>) => {
+  const onClickCreateBtn = async (data: any) => {
     try {
       await createQuestion({
         variables: {
@@ -74,7 +74,7 @@ export default function MarketInquiryWriteContainer(
     };
 
     if (!localStorage.getItem("accessToken")) {
-      CommentFail("로그인 후 이용할 수 있습니다.");
+      FailModal("로그인 후 이용할 수 있습니다.");
     } else {
       try {
         await updateQuestion({
