@@ -1,0 +1,9 @@
+verseion: "3.7"
+
+services:
+  class_build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
