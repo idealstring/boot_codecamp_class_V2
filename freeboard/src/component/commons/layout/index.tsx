@@ -29,8 +29,7 @@ export default function Layout(props: ILayoutP) {
     "/users/mypage/edit",
     "/users/mypage/edit/password",
   ];
-
-  const isShowMyPage = SHOW_NAVIGATIONS.includes(router.asPath);
+  const isShowMyPage = SHOW_NAVIGATIONS.includes(router.pathname);
 
   return (
     <>

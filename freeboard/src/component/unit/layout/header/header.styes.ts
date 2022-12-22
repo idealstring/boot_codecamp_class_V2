@@ -3,6 +3,7 @@ import { StyleSet } from "../../../../commons/style/styleSet";
 
 export const Container = styled.header`
   width: 100%;
+  min-width: 560px;
 `;
 
 export const Wrapper = styled.header`

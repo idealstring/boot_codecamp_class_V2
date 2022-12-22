@@ -4,6 +4,7 @@ import { StyleSet } from "../../../../commons/style/styleSet";
 export const Container = styled.footer`
   margin-top: 50px;
   width: 100%;
+  min-width: 560px;
 `;
 
 export const Wrapper = styled.footer`
@@ -21,8 +22,7 @@ export const WrapperLeft = styled.div`
   margin-right: 50px;
 `;
 export const WrapperRight = styled.div`
-  font-size: ${StyleSet.fontSize.b3}
-  color: #555;
+  font-size: ${StyleSet.fontSize.b3};
 `;
 
 export const OutLinkWrapper = styled.div`

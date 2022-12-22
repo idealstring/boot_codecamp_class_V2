@@ -37,8 +37,8 @@ function MyPagePresenter(P: IMyPagePresenterProps) {
         <S.HistoryTH>포인트</S.HistoryTH>
         <S.HistoryTH>잔여 포인트</S.HistoryTH>
       </S.HistoryWrapper>
-      {fetchPointTransactions?.fetchPointTransactions.map((el) => (
-        <S.HistoryWrapper>
+      {fetchPointTransactions?.fetchPointTransactions.map((el, i) => (
+        <S.HistoryWrapper key={i}>
           <S.HistoryDate>{dateFormatter(el.createdAt)}</S.HistoryDate>
           <S.ChargePurchase>{el.status}</S.ChargePurchase>
           <S.IncreaDecrea minus={String(el.amount).includes("-")}>

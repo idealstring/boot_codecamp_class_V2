@@ -21,7 +21,7 @@ const ContentsButton = styled.button`
 
       position: absolute;
       bottom: -5px;
-      left: 5px;
+      left: 0px;
     }
   }
 `;
