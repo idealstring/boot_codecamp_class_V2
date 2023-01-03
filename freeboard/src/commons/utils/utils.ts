@@ -21,7 +21,10 @@ export const dateTimeFormatter = (rawDate: Date) => {
 
 export const PriceFormatter = (price: Maybe<number> | undefined) => {
   // return String(price).replace(/^([0-9]+)?([0-9]{3})([0-9]{3})$/, "₩$1,$2,$3");
-  return `₩${price?.toLocaleString()}`;
+  return `${price?.toLocaleString("ko-KR", {
+    style: "currency",
+    currency: "KRW",
+  })}`;
 };
 
 export const PointFormatter = (price: Maybe<number> | undefined) => {
